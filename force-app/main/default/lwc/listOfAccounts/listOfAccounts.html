@@ -1,3 +1,11 @@
 <template>
-    
+    <lightning-card title="Account List" icon="standard:Account">
+        <div class="slds-p-around_medium">
+            <template lwc:if={accounts.data}>
+                <template for:each={accountList} for:item="acc">
+                    <li key={acc.Id}>{acc.fields.Name.value}</li>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
 </template>

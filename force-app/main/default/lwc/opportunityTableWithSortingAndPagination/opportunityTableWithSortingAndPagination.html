@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Opportunity Data Table" icon-name="standard:opportunity">
+        <div class="slds-p-around_medium">
+        <template lwc:if={opportunities.data}>
+            <lightning-datatable
+                    key-field = "id"
+                    data = {displayedOpportunities}
+                    columns={columns}
+                    onsort={handleSort}
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}
+                    onrowselection={handleRowSelection}           
+                    >
+            </lightning-datatable>
+            <div class="slds-grid slds-grid_align-spread slds-m-top_small">
+                <lightning-button label="Previous" disabled={isFirstPage} onclick={handlePrevious}></lightning-button>
+                <lightning-button label="Next" disabled={isLastPage} onclick={handleNext}></lightning-button>
+            </div>
+        </template>
+        </div>
+    </lightning-card>
+</template>
