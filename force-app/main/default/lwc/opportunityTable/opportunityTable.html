@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Opportunity Data Table" icon-name="standard:opportunity">
+        <div class="slds-p-around_medium">
+        <template lwc:if={opportunities.data}>
+            <lightning-datatable
+                    key-field = "id"
+                    data = {opportunityList}
+                    columns={columns}           
+                    >
+            </lightning-datatable>
+        </template>
+        </div>
+    </lightning-card>
+</template>

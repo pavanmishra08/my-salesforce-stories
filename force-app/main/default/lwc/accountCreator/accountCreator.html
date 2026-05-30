@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Create Account" icon-name="standard:account">
+        <div class="slds-p-around_medium">
+            <lightning-record-form object-api-name={objectApiName}
+                fields={fields}
+                onsubmit={handleSubmit}
+                onsuccess={handleSuccess}
+                onerror={handleError}>
+            </lightning-record-form>
+            <template lwc:if={showError}>
+                <div class="slds-notify slds-notify_alert slds theme_error slds-m-top_small" role="alert">
+                    <span class="slds-assistive-text">Error</span>
+                    <span class="slds-icon_container slds-icon utility-error slds-m-right_x-small">
+                        <lightning-icon icon-name="utility:error" size="x-small" variant="inverse"></lightning-icon>
+                    </span>
+                    <h2>Error: {errorMessage}</h2>
+                </div>
+            </template>
+            <template lwc:if={showSuccess}>
+                <div class="slds-notify slds-notify_alert slds theme_success slds-m-top_small" role="alert">
+                    <span class="slds-assistive-text">Success</span>
+                    <span class="slds-icon_container slds-icon utility-success slds-m-right_x-small">
+                        <lightning-icon icon-name="utility:success" size="x-small" variant="inverse"></lightning-icon>
+                    </span>
+                    <h2>Account created successfully!</h2>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

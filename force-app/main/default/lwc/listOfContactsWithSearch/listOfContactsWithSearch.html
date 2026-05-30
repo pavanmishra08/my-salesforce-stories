@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Contact Search" icon-name="standard:Contact">
+        <div class="slds-p-around_medium">
+            <lightning-input 
+                label="Search Contacts"
+                placeholder="Search Contacts by Name"
+                onchange={handleOnChange}
+            ></lightning-input>
+            <template lwc:if={contacts.data}>
+                <template for:each={contactList} for:item="contact">
+                    <div key={contact.id} class="slds-box slds-m bottom_small">
+                        <p>{contact.fields.Name.value}</p>
+                        <p>{contact.fields.Email.value}</p>
+                        <p>{contact.fields.Phone.value}</p>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>
